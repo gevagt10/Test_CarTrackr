@@ -7,6 +7,7 @@ using System;
 using CarTrackr.Tests.Helpers;
 using CarTrackr.Tests.Repository;
 using CarTrackr.Models;
+using System.Collections.Generic;
 
 namespace CarTrackr.Tests.Controllers
 {
@@ -139,13 +140,18 @@ namespace CarTrackr.Tests.Controllers
             // Execute
             string licensePlate = "testplate1";
             FormCollection formCollection = new FormCollection();
-            formCollection.Add("Date",DateTime.Now.ToString());
-            formCollection.Add("ServiceStation","teststation3");
-            formCollection.Add("Kilometers", "300");
-            formCollection.Add("Liters", "100");
-            formCollection.Add("PricePerLiter", "2");
-            formCollection.Add("Total", "200");
-            formCollection.Add("Usage", "100");
+			formCollection.Add("Date", DateTime.Now.ToString());
+			formCollection.Add("ServiceStation", "teststation3");
+			formCollection.Add("Kilometers", "300");
+			formCollection.Add("Liters", "100");
+			formCollection.Add("PricePerLiter", "2");
+			formCollection.Add("Total", "200");
+			formCollection.Add("Usage", "100");
+
+			//A ValueProvideCollection is required for MVC 2, see http://fzysqr.com/2010/08/12/unit-testing-updatemodel-and-tryupdatemodel-in-asp-net-mvc2/
+			List<IValueProvider> valueProviders = new List<IValueProvider>();
+			valueProviders.Add(formCollection);
+			target.ValueProvider = new ValueProviderCollection(valueProviders);
 
             RedirectToRouteResult result = target.New(licensePlate, formCollection) as RedirectToRouteResult;
 
