@@ -22,7 +22,7 @@ namespace CarTrackr.Controllers
             : this(null, null)
         {
         }
-
+		//Test rusu
         public AccountController(IFormsAuthentication formsAuth, MembershipProvider provider)
         {
             FormsAuth = formsAuth ?? new FormsAuthenticationWrapper();
