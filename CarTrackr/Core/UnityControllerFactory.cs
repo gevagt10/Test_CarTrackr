@@ -11,6 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Microsoft.Practices.Unity;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace CarTrackr.Core
 {
@@ -22,8 +23,8 @@ namespace CarTrackr.Core
         {
             this.container = container;
         }
-        
-        protected override IController GetControllerInstance(Type controllerType)
+
+		protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
             IController controller = null;
 

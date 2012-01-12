@@ -1,2 +1,9 @@
 This is just a lame clone of the original CarTrackr app hosted on http://cartrackr.codeplex.com/releases/view/18356 for testing git and github
+<<<<<<< HEAD
 All credits should go to the creator of this application.12
+=======
+All credits should go to the creator of this application.
+
+Test test test
+another test test test
+>>>>>>> 5265f6e9ebfec86f133bc7b0dc962216e3a43786
